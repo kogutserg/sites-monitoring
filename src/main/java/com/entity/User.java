@@ -1,4 +1,4 @@
-package com.register;
+package com.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
