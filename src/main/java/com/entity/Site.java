@@ -2,10 +2,7 @@ package com.entity;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Data
@@ -20,5 +17,6 @@ public class Site implements Serializable {
     private String siteName;
     private MonitoringType monitoringType;
     private int status = 1;
+    @Enumerated(EnumType.STRING)
     private KeywordType keywordExist;
 }
