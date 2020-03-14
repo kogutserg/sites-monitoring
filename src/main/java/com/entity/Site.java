@@ -1,8 +1,14 @@
 package com.entity;
 
-import javax.persistence.*;
+import lombok.Data;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.io.Serializable;
 
+@Data
 @Entity
 public class Site implements Serializable {
     @Id
@@ -14,78 +20,5 @@ public class Site implements Serializable {
     private String siteName;
     private MonitoringType monitoringType;
     private int status = 1;
-    private String keywordExist;
-    private String keywordNotExist;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public String getFriendlySiteName() {
-        return friendlySiteName;
-    }
-
-    public void setFriendlySiteName(String friendlySiteName) {
-        this.friendlySiteName = friendlySiteName;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    public String getSiteName() {
-        return siteName;
-    }
-
-    public void setSiteName(String siteName) {
-        this.siteName = siteName;
-    }
-
-    public MonitoringType getMonitoringType() {
-        return monitoringType;
-    }
-
-    public void setMonitoringType(MonitoringType monitoringType) {
-        this.monitoringType = monitoringType;
-    }
-
-    public long getMonitoringInterval() {
-        return monitoringInterval;
-    }
-
-    public void setMonitoringInterval(long monitoringInterval) {
-        this.monitoringInterval = monitoringInterval;
-    }
-
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
-    }
-
-    public String getKeywordExist() {
-        return keywordExist;
-    }
-
-    public void setKeywordExist(String keywordExist) {
-        this.keywordExist = keywordExist;
-    }
-
-    public String getKeywordNotExist() {
-        return keywordNotExist;
-    }
-
-    public void setKeywordNotExist(String keywordNotExist) {
-        this.keywordNotExist = keywordNotExist;
-    }
+    private KeywordType keywordExist;
 }

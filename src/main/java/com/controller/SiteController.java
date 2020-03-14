@@ -1,5 +1,6 @@
 package com.controller;
 
+import com.entity.KeywordType;
 import com.entity.MonitoringType;
 import com.entity.Site;
 import com.repository.SiteRepository;
@@ -21,7 +22,9 @@ public class SiteController {
 
     @GetMapping(path = "/list")
     public @ResponseBody
-    Iterable<Site> getAllUsersSites() { return siteRepository.findAll(); }
+    Iterable<Site> getAllUsersSites() {
+        return siteRepository.findAll();
+    }
 
     @GetMapping(path = "/listSite")
     public @ResponseBody
@@ -36,20 +39,16 @@ public class SiteController {
                             @RequestParam String siteName,
                             @RequestParam MonitoringType monitoringType,
                             @RequestParam long interval,
-                            String keywordExist,
-                            String keywordNotExist){
+                            @RequestParam KeywordType keywordExist) {
         Site site = new Site();
         site.setUserId(userId);
         site.setFriendlySiteName(friendlySiteName);
         site.setSiteName(siteName);
         site.setMonitoringType(monitoringType);
         site.setMonitoringInterval(interval);
-        if (monitoringType.equals(MonitoringType.KEYWORD)) {
-            site.setKeywordExist(keywordExist);
-            site.setKeywordNotExist(keywordNotExist);
-        }
+        site.setKeywordExist(keywordExist);
         siteRepository.save(site);
-        return "Site " + siteName +" - added";
+        return "Site " + siteName + " - added";
     }
 
     @PostMapping(path = "update")
