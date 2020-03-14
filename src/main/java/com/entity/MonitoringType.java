@@ -1,7 +1,7 @@
 package com.entity;
 
 public enum MonitoringType {
-    Ping,
+    PING,
     HTTP,
     HTTPS,
     KEYWORD
